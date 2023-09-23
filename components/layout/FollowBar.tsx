@@ -9,7 +9,7 @@ const FollowBar = () => {
   // Atribuição de dados a usuários se igualando ao estado de uso de Usuários
   const { data: users = [] } = useUsers();
 
-  // Se for verdade o tamanho de usuários
+  // Se for verdade o tamanho de usuários terá o valor e tipo igual a 0, e irá retornar nulo
   if (users.length === 0) {
     return null;
   }
