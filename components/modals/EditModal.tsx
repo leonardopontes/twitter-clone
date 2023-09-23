@@ -21,15 +21,16 @@ const EditModal = () => {
 
   // Imagem do perfil e definir Imagem do Perfil ligado ao uso de Estado vazio
   const [profileImage, setProfileImage] = useState('');
-  // ligado ao uso de Estado vazio
+  // Imagem coberta e definir Imagem Coberta ligado ao uso de Estado vazio
   const [coverImage, setCoverImage] = useState('');
-  // ligado ao uso de Estado vazio
+  // Nome e definir Nome ligado ao uso de Estado vazio
   const [name, setName] = useState('');
-  // ligado ao uso de Estado vazio
+  // Nome de usuário e definir nome de Usuário ligado ao uso de Estado vazio
   const [username, setUsername] = useState('');
-  // ligado ao uso de Estado vazio 
+  // bio e definir Bio ligado ao uso de Estado vazio 
   const [bio, setBio] = useState('');
 
+  // uso de Efeito...
   useEffect(() => {
     setProfileImage(currentUser?.profileImage)
     setCoverImage(currentUser?.coverImage)
