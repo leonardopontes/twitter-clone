@@ -44,8 +44,10 @@ const EditModal = () => {
     setBio(currentUser?.bio)
   }, [currentUser?.name, currentUser?.username, currentUser?.bio, currentUser?.profileImage, currentUser?.coverImage]);
   
+  // está carregando, definir se está carregando, ligando ao uso de Estado falso
   const [isLoading, setIsLoading] = useState(false);
 
+  // Envio ativado, ligando ao uso de Callback, recebendo uma função assíncrona, contendo...
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
