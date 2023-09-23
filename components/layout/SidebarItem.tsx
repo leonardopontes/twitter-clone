@@ -28,16 +28,21 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ label, icon: Icon, href, auth
 
   // Atribuição de lidar com Click igualando ao uso de Callback, sendo assim...
   const handleClick = useCallback(() => {
-    // Se for verdadeiro ao clicar, retornar ao clicar (click ligado)
+    // Se for verdade o click, retornar o click
     if (onClick) {
       return onClick();
     }
 
+    // Se for verdade a autenticação e a negação de Atuais Usuários...
     if (auth && !currentUser) {
+      // o LoginModal (Modal de Login) será aberto
       loginModal.onOpen();
+    // Se for falso e aqui for verdadeiro o href...
     } else if (href) {
+      // rotas puxando href
       router.push(href);
     }
+  // Sempre que o trecho for executado, terá esses itens
   }, [router, href, auth, loginModal, onClick, currentUser]);
 
   return (
