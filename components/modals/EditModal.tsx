@@ -32,10 +32,15 @@ const EditModal = () => {
 
   // uso de Efeito...
   useEffect(() => {
+    // definir Imagem de Perfil, recebendo atual Usuário  com Imagem de perfil
     setProfileImage(currentUser?.profileImage)
+    // definir Imagem coberta, recebendo atual Usuário com Imagem coberta
     setCoverImage(currentUser?.coverImage)
+    // definir Nome, recebendo atual Usuário com nome 
     setName(currentUser?.name)
+    // definir Nome de usuário, recebendo atual Usuário com nome de usuário
     setUsername(currentUser?.username)
+    // definir Bio, recebendo atual Usuário com Bio
     setBio(currentUser?.bio)
   }, [currentUser?.name, currentUser?.username, currentUser?.bio, currentUser?.profileImage, currentUser?.coverImage]);
   
