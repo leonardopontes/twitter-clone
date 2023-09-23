@@ -10,15 +10,24 @@ import Input from "../Input";
 import Modal from "../Modal";
 import ImageUpload from "../ImageUpload";
 
+// Atribuir Edição de Modal, contendo...
 const EditModal = () => {
+  // dados com atual Usuário, ligando ao uso de Atual Usuário
   const { data: currentUser } = useCurrentUser();
+  // mutação com mutação na Busca de Usuário, ligando ao uso de Usuário recebendo atual Usuário e id
   const { mutate: mutateFetchedUser } = useUser(currentUser?.id);
+  // edição de modal ligado ao uso de Edição de Modal
   const editModal = useEditModal();
 
+  // Imagem do perfil e definir Imagem do Perfil ligado ao uso de Estado vazio
   const [profileImage, setProfileImage] = useState('');
+  // ligado ao uso de Estado vazio
   const [coverImage, setCoverImage] = useState('');
+  // ligado ao uso de Estado vazio
   const [name, setName] = useState('');
+  // ligado ao uso de Estado vazio
   const [username, setUsername] = useState('');
+  // ligado ao uso de Estado vazio 
   const [bio, setBio] = useState('');
 
   useEffect(() => {
