@@ -9,9 +9,12 @@ import SidebarItem from './SidebarItem';
 import SidebarLogo from './SidebarLogo';
 import SidebarTweetButton from './SidebarTweetButton';
 
+// Atribuir Sidebar, contendo...
 const Sidebar = () => {
+  // Dados com Atuais usuários igualando ao estado de uso Atuais de Usuários
   const { data: currentUser } = useCurrentUser();
 
+  // Atribuição  de  itens
   const items = [
     {
       icon: BsHouseFill,
