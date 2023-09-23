@@ -5,13 +5,20 @@ import { useRouter } from "next/router";
 import useLoginModal from "@/hooks/useLoginModal";
 import useCurrentUser from "@/hooks/useCurrentUser";
 
+// Atribuir Botão de Tweet Sidebar, contendo...
 const SidebarTweetButton = () => {
+  // rotas ligando ao uso de Rotas
   const router = useRouter();
+  // loginModal ligando ao uso de Login Modal
   const loginModal = useLoginModal();
+  // dados com Atuais Usuários ligando ao uso de Atuais Usuários
   const { data: currentUser } = useCurrentUser();
 
+  // click ativado ligando ao uso de Callbacks, contendo...
   const onClick = useCallback(() => {
+    // Se for verdade a negação de atuais Usuários
     if (!currentUser) {
+      // retornar login Modal aberto
       return loginModal.onOpen();
     }
 
