@@ -1,8 +1,12 @@
+// importar uso de Usuários de Hooks de uso de usuários
 import useUsers from '@/hooks/useUsers';
 
+// importar Avatar de onde se localiza Avatar
 import Avatar from '../Avatar';
 
+// Atribuir Barra de seguir, passando (contendo)...
 const FollowBar = () => {
+  // Atribuição de dados 
   const { data: users = [] } = useUsers();
 
   if (users.length === 0) {
