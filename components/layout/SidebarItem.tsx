@@ -6,6 +6,7 @@ import useLoginModal from '@/hooks/useLoginModal';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import { BsDot } from 'react-icons/bs';
 
+// Definir uma Interface de Propriedade dos Itens Sidebar
 interface SidebarItemProps {
   label: string;
   icon: IconType;
