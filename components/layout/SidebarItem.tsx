@@ -16,13 +16,19 @@ interface SidebarItemProps {
   alert?: boolean;
 }
 
+// Atribuir SidebarItem com React.FC<> igualando a propriedades, contendo...
 const SidebarItem: React.FC<SidebarItemProps> = ({ label, icon: Icon, href, auth, onClick, alert }) => {
+  // Atribuição ao uso de Rotas
   const router = useRouter();
+  // Atribuição ao uso de Login Modal
   const loginModal = useLoginModal();
 
+  // Atribuição de dados com Atuais Usuários, igualando ao uso de Atuais Usuários
   const { data: currentUser } = useCurrentUser();
 
+  // Atribuição de lidar com Click igualando ao uso de Callback, sendo assim...
   const handleClick = useCallback(() => {
+    // Se for verdadeiro ao clicar, retornar ao clicar (click ligado)
     if (onClick) {
       return onClick();
     }
