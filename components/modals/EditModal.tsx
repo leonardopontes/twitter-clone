@@ -49,20 +49,28 @@ const EditModal = () => {
 
   // Envio ativado, ligando ao uso de Callback, recebendo uma função assíncrona, contendo...
   const onSubmit = useCallback(async () => {
+    // Exceção de tentar, definir se está carregando de forma verdadeira
     try {
       setIsLoading(true);
 
+      // aguardar enquanto axios corrige a rota '/api/edit', contendo nome, nome de usuário, bio, Imagem de perfil e cobrir Imagem
       await axios.patch('/api/edit', { name, username, bio, profileImage, coverImage });
+      // modificar usuário obtido
       mutateFetchedUser();
 
+      // Utilização de toast, exibindo com sucesso a mensagem de 'atualizado'
       toast.success('Updated');
 
+      // edição de Modal Fechado ativado
       editModal.onClose();
+      // pegar erro utilizando toast com erro a mensagem de 'Algo deu errado'
     } catch (error) {
       toast.error('Something went wrong');
+      // finalizar, definir se está carregando de forma falsa
     } finally {
       setIsLoading(false);
     }
+    // Envolver na estrutura edição de Modal, nome, nome de usuário, bio, modificar usuário obtido, Imagem de perfil e cobrir Imagem
   }, [editModal, name, username, bio, mutateFetchedUser, profileImage, coverImage]);
 
   const bodyContent = (
