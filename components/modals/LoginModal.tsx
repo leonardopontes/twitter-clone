@@ -8,36 +8,54 @@ import useRegisterModal from "@/hooks/useRegisterModal";
 import Input from "../Input";
 import Modal from "../Modal";
 
+// Atribuir Login de Modal, contendo...
 const LoginModal = () => {
+  // login de Modal ligando ao uso de Login Modal
   const loginModal = useLoginModal();
+  // registro de Modal ligando ao uso de Registro Modal
   const registerModal = useRegisterModal();
 
+  // email e definir Email ligado ao uso uso de Estado vazio
   const [email, setEmail] = useState('');
+  // senha e definir senha ligado ao uso uso de Estado vazio
   const [password, setPassword] = useState('');
+  // está carregando e definir se está carregando ligado ao uso uso de Estado falso
   const [isLoading, setIsLoading] = useState(false);
 
+  // Envio ativado ligado ao uso de Callback de forma assíncrona, contendo...
   const onSubmit = useCallback(async () => {
+    // Exceção de tentar, definir se está carregando de forma verdadeira
     try {
       setIsLoading(true);
 
+      // aguardar iniciar sessão, contendo credenciais, sendo... email e senha
       await signIn('credentials', {
         email,
         password,
       });
 
+      // exibir mensagem de sucesso 'Logado' utilizando toast
       toast.success('Logged in');
 
+      // login de Modal Fechado ativado
       loginModal.onClose();
+      // pegar erro utilizando toast com erro a mensagem de 'Algo deu errado'
     } catch (error) {
       toast.error('Something went wrong');
+      // finalizar, definir se está carregando de forma falsa
     } finally {
       setIsLoading(false);
     }
+    // Envolver na estrutura email, senha e login de Modal
   }, [email, password, loginModal]);
 
+  // Alternar ativando, com uso de Callback, contendo...
   const onToggle = useCallback(() => {
+    // login de Modal Fechado ativado
     loginModal.onClose();
+    // registro de Modal Aberto ativado
     registerModal.onOpen();
+    // Envolver na estrutura login Modal e registro Modal
   }, [loginModal, registerModal])
 
   const bodyContent = (
