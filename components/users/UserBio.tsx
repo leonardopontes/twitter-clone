@@ -9,24 +9,36 @@ import useEditModal from "@/hooks/useEditModal";
 
 import Button from "../Button";
 
+// Definir uma interface de Propriedade da Bio do Usuário {
 interface UserBioProps {
+  // Id de usuário possuindo: string;
   userId: string;
 }
 
+// Bio do Usuário possuindo: React.FC<interface> ligando a = ({ Id de usuário }) contendo... => {
 const UserBio: React.FC<UserBioProps> = ({ userId }) => {
+  // { dados possuindo: Usuário atual } igualando ao = uso de Usuário Atual();
   const { data: currentUser } = useCurrentUser();
+  // { dados possuindo: Usuário buscado } igualando ao = uso de Usuário Atual(com Id de usuário);
   const { data: fetchedUser } = useUser(userId);
 
+  // editar Modal ligando ao = uso de Editar Modal();
   const editModal = useEditModal();
 
+  // { seguir e Alternar Seguidor  } igualando ao = uso de Seguir(com Id de usuário);
   const { isFollowing, toggleFollow } = useFollow(userId);
 
+  // criado Em ligado ao = uso Memo((), contendo... =>
   const createdAt = useMemo(() => {
+    // sendo verdade a negação de Usuário buscado? criado Em...
     if (!fetchedUser?.createdAt) {
+      // retornar nulo
       return null;
     }
 
+    // retornar formato com (nova Data com (Usuário buscado. criado Em), 'MMMM yyyy');
     return format(new Date(fetchedUser.createdAt), 'MMMM yyyy');
+    // }, Envolver na estrutura [Usuário buscado?. criado Em]
   }, [fetchedUser?.createdAt])
 
 
