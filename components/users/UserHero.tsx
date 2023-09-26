@@ -4,11 +4,15 @@ import useUser from "@/hooks/useUser";
 
 import Avatar from "../Avatar"
 
+// Definir uma interface de Propriedade da Bio do Usuário {
 interface UserHeroProps {
+  // Id de usuário possuindo: string;
   userId: string;
 }
 
+// Hero do Usuário possuindo: React.FC<interface> ligando a = ({ Id de usuário }) contendo... => {
 const UserHero: React.FC<UserHeroProps> = ({ userId }) => {
+  // { dados possuindo: Usuário buscado } igualando ao = uso de Usuário(com Id de usuário);
   const { data: fetchedUser } = useUser(userId);
 
   return ( 
