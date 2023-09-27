@@ -1,3 +1,4 @@
+// Definir uma interface de Propriedade de Botão {
 interface ButtonProps {
   label: string;
   secondary?: boolean;
@@ -8,6 +9,7 @@ interface ButtonProps {
   outline?: boolean;
 }
 
+// Botão possuindo: React.FC<interface> ligando a = ({ }) contendo... => {
 const Button: React.FC<ButtonProps> = ({ 
   label, 
   secondary, 
