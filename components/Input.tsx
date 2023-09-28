@@ -1,12 +1,20 @@
+// Definir uma interface de Propriedade de Input {
 interface InputProps {
+  // espaço reservado? como: string;
   placeholder?: string;
+  // valor? como: string;
   value?: string;
+  // tipo? como: string;
   type?: string;
+  // desabilitar? como: booleano;
   disabled?: boolean;
+  // mudança Ligada como: (evento com: React.ChangeEvent<HTMLInputElement>) => vazio;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  // rótulo? como: string;
   label?: string;
 }
 
+// Input possuindo: React.FC<interface> ligando a = ({ espaço reservado, valor, tipo = "texto", desabilitar, rótulo }) contendo... => {
 const Input: React.FC<InputProps> = ({ placeholder, value, type = "text", onChange, disabled, label }) => {
   return (
     <div className="w-full">
