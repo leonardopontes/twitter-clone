@@ -3,6 +3,7 @@ import React from 'react';
 import FollowBar from "@/components/layout/FollowBar"
 import Sidebar from "@/components/layout/Sidebar"
 
+// Layout possuindo: React.FC<{ children: React.ReactNode }> ligando a = ({ children }) contendo... => {
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="h-screen bg-black">
