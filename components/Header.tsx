@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({showBackArrow, label }) => {
   // rota ligando a = uso de Rota();
   const router = useRouter();
 
-  // Lidar com volta ligando a = uso de Callback(() contendo... => {
+  // lidar com Volta ligando a = uso de Callback(() contendo... => {
   const handleBack = useCallback(() => {
     // voltar.rota();
     router.back();
