@@ -8,15 +8,19 @@ import Header from "@/components/Header";
 import UserBio from "@/components/users/UserBio";
 import UserHero from "@/components/users/UserHero";
 
-
-
+// Visualizar Usuário ligando a = função anônima sem parâmetros, contendo... => {
 const UserView = () => {
+  // rota ligando a = uso de Rotas();
   const router = useRouter();
+  // { Id de usuário } ligando a = consultar.rota;
   const { userId } = router.query;
 
+  // { dados: buscar Usuário, está Carregando } ligando a = uso de Usuário(Id de usuário como string);
   const { data: fetchedUser, isLoading } = useUser(userId as string);
 
+  // Se (está carregando || negação de buscar Usuário) { for verdade
   if (isLoading || !fetchedUser) {
+    // retornar
     return (
       <div className="flex justify-center items-center h-full">
         <ClipLoader color="lightblue" size={80} />
@@ -24,6 +28,7 @@ const UserView = () => {
     )
   }
 
+  // retornar
   return (
     <>
       <Header showBackArrow label={fetchedUser?.name} />
