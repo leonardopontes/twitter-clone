@@ -85,7 +85,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // sendo verdade o (método.de requisição === 'DELETAR') {
     if (req.method === 'DELETE') {
-      // deixar atualizar Ids de seguidor ligando a = deixar atualizar Ids de seguidor.filtrando((Id de seguidor) => Id de seguidor !== Id usuário);
+      // atualizar Ids de seguidor ligando a = atualizar Ids de seguidor.filtrando((Id de seguidor) => Id de seguidor !== Id usuário);
       updatedFollowingIds = updatedFollowingIds.filter((followingId) => followingId !== userId);
     }
 
